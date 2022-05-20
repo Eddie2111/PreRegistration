@@ -13,6 +13,6 @@
 
 ## Works for saturday.
 
-# Session-validation implemented
-# access-token refresh token not implemented yet.
-# cloudinary - not merged yet.
+### Session-validation with jwt
+### access-token refresh token not implemented yet.
+### cloudinary - not merged with api yet.

@@ -111,11 +111,12 @@ app.post('/service',
   // send the otp to mongo with bcrypt cookies
 });
 
+
 app.get('/otp',(req,res)=>{
   if(req.session.user){
-  res.render('pages/otp');
+  res.redirect('/otp');
   }
-  else{ res.render('pages/service');}
+  else{ res.redirect('/service');}
 });
 app.post('/otp',(req,res)=>{
   const otp = parseInt(req.body.otp);
@@ -139,16 +140,10 @@ app.post('/otp',(req,res)=>{
 }
 });
   
+
   // send the otp to mongo with bcrypt cookies
   const url = `mongodb+srv://${process.env.DBUSERNAME}:${process.env.DBPASSWORD}@${process.env.DBCLUSTER}`;
 
-app.get('/personalDetails',(req,res)=>{
-  if(req.session.user){
-  res.render('pages/personalDetails');
-  }
-  else{ res.render('pages/service');}
-
-})
 
 app.get('/app/:id',(req,res)=>{
     const token = req.params.id;
@@ -222,10 +217,6 @@ app.post('/profile',
   return res.status(400).json({ errors: errors.array() });
   }  
   res.send(req.body);
-});
-
-app.post( '/user',(req, res) => {
-    console.log(req.body);
 });
 
 const port =  process.env.PORT;
